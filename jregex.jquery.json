@@ -1,0 +1,35 @@
+{
+    "name": "jregex",
+    "title": "jRegex",
+    "description": "jQuery plugin for building regular expressions",
+    "keywords": [
+        "regular",
+        "expressions",
+        "easy"
+    ],
+    "version": "0.0.1",
+    "author": {
+        "name": "jQuery Foundation and other contributors",
+        "url": "https://github.com/jquery/jquery-color/blob/2.1.2/AUTHORS.txt"
+    },
+    "maintainers": [
+        {
+            "name": "shrimpboyho",
+            "email": "shrimpboyhoftw@gmail.com",
+            "url": "http://github.com"
+        }
+    ],
+    "licenses": [
+        {
+            "type": "GPL",
+            "url": "https://github.com/shrimpboyho/jizzy/blob/master/license.txt"
+        }
+    ],
+    "bugs": "https://github.com/shrimpboyho/jregex/issues",
+    "homepage": "https://github.com/shrimpboyho/jregex",
+    "docs": "https://github.com/shrimpboyho/jregex",
+    "download": "https://github.com/shrimpboyho/jregex/releases",
+    "dependencies": {
+        "jquery": ">=1.8"
+    }
+}
