@@ -23,19 +23,19 @@ function regexBuilder() {
 
     if (optionString) {
 
-      if (optionString == "anyChar") {
+      if (optionString === "anyChar") {
         regexExpression += ".";
-      } else if (optionString == "anyLetter") {
+      } else if (optionString === "anyLetter") {
         regexExpression += "[a-zA-Z]";
-      } else if (optionString == "anyUppercaseLetter") {
+      } else if (optionString === "anyUppercaseLetter") {
         regexExpression += "[A-Z]";
-      } else if (optionString == "anyLowercaseLetter") {
+      } else if (optionString === "anyLowercaseLetter") {
         regexExpression += "[a-z]";
-      } else if (optionString == "freeText") {
+      } else if (optionString === "freeText") {
         regexExpression += fieldString;
-      } else if (optionString == "anyWhitespace") {
+      } else if (optionString === "anyWhitespace") {
         regexExpression += "\\s";
-      } else if (optionString == "anyDigit") {
+      } else if (optionString === "anyDigit") {
         regexExpression += "\\d";
       }
     }
@@ -51,7 +51,7 @@ function regexBuilder() {
 
       for (i = 0; i < numString.length; i++) {
 
-        if (numString[i] == ("+")) {
+        if (numString[i] === ("+")) {
 
           firstDigit = numString.substring(0, i);
           console.log("First digit: " + firstDigit);
@@ -59,7 +59,7 @@ function regexBuilder() {
 
         }
 
-        if (numString[i] == (":")) {
+        if (numString[i] === (":")) {
 
           firstDigit = numString.substring(0, i);
           secondDigit = numString.substring(i + 1, numString.length);
@@ -70,26 +70,26 @@ function regexBuilder() {
         }
       }
 
-      if (i == numString.length) { // An explicit digit was found
+      if (i === numString.length) { // An explicit digit was found
         var firstDigit = numString;
       }
 
       /* Explicit amount */
 
-      if (secondDigit == "undefined") {
+      if (secondDigit === "undefined") {
         regexExpression += "{" + firstDigit + "}";
       }
 
 
       /* Between */
 
-      if (numString.indexOf(':') != -1) {
+      if (numString.indexOf(':') !== -1) {
         regexExpression += "{" + firstDigit + "," + secondDigit + "}";
       }
 
       /* Or more */
 
-      if (numString.indexOf('+') != -1) {
+      if (numString.indexOf('+') !== -1) {
         regexExpression += "{" + firstDigit + ",}";
       }
 
@@ -107,19 +107,19 @@ function regexBuilder() {
 
     if (optionString) {
 
-      if (optionString == "anyChar") {
+      if (optionString === "anyChar") {
         regexExpression += ".";
-      } else if (optionString == "anyLetter") {
+      } else if (optionString === "anyLetter") {
         regexExpression += "[a-zA-Z]";
-      } else if (optionString == "anyUppercaseLetter") {
+      } else if (optionString === "anyUppercaseLetter") {
         regexExpression += "[A-Z]";
-      } else if (optionString == "anyLowercaseLetter") {
+      } else if (optionString === "anyLowercaseLetter") {
         regexExpression += "[a-z]";
-      } else if (optionString == "freeText") {
+      } else if (optionString === "freeText") {
         regexExpression += fieldString;
-      } else if (optionString == "anyWhitespace") {
+      } else if (optionString === "anyWhitespace") {
         regexExpression += "\\s";
-      } else if (optionString == "anyDigit") {
+      } else if (optionString === "anyDigit") {
         regexExpression += "\\d";
       }
     }
@@ -135,7 +135,7 @@ function regexBuilder() {
 
       for (i = 0; i < numString.length; i++) {
 
-        if (numString[i] == ("+")) {
+        if (numString[i] === ("+")) {
 
           firstDigit = numString.substring(0, i);
           console.log("First digit: " + firstDigit);
@@ -143,7 +143,7 @@ function regexBuilder() {
 
         }
 
-        if (numString[i] == (":")) {
+        if (numString[i] === (":")) {
 
           firstDigit = numString.substring(0, i);
           secondDigit = numString.substring(i + 1, numString.length);
@@ -154,26 +154,26 @@ function regexBuilder() {
         }
       }
 
-      if (i == numString.length) { // An explicit digit was found
+      if (i === numString.length) { // An explicit digit was found
         var firstDigit = numString;
       }
 
       /* Explicit amount */
 
-      if (secondDigit == "undefined") {
+      if (secondDigit === "undefined") {
         regexExpression += "{" + firstDigit + "}";
       }
 
 
       /* Between */
 
-      if (numString.indexOf(':') != -1) {
+      if (numString.indexOf(':') !== -1) {
         regexExpression += "{" + firstDigit + "," + secondDigit + "}";
       }
 
       /* Or more */
 
-      if (numString.indexOf('+') != -1) {
+      if (numString.indexOf('+') !== -1) {
         regexExpression += "{" + firstDigit + ",}";
       }
 
@@ -185,19 +185,19 @@ function regexBuilder() {
   this.followedBy = function(optionString, fieldString, numString) {
     if (optionString) {
 
-      if (optionString == "anyChar") {
+      if (optionString === "anyChar") {
         regexExpression += ".";
-      } else if (optionString == "anyLetter") {
+      } else if (optionString === "anyLetter") {
         regexExpression += "[a-zA-Z]";
-      } else if (optionString == "anyUppercaseLetter") {
+      } else if (optionString === "anyUppercaseLetter") {
         regexExpression += "[A-Z]";
-      } else if (optionString == "anyLowercaseLetter") {
+      } else if (optionString === "anyLowercaseLetter") {
         regexExpression += "[a-z]";
-      } else if (optionString == "freeText") {
+      } else if (optionString === "freeText") {
         regexExpression += fieldString;
-      } else if (optionString == "anyWhitespace") {
+      } else if (optionString === "anyWhitespace") {
         regexExpression += "\\s";
-      } else if (optionString == "anyDigit") {
+      } else if (optionString === "anyDigit") {
         regexExpression += "\\d";
       }
     }
@@ -213,7 +213,7 @@ function regexBuilder() {
 
       for (i = 0; i < numString.length; i++) {
 
-        if (numString[i] == ("+")) {
+        if (numString[i] === ("+")) {
 
           firstDigit = numString.substring(0, i);
           console.log("First digit: " + firstDigit);
@@ -221,7 +221,7 @@ function regexBuilder() {
 
         }
 
-        if (numString[i] == (":")) {
+        if (numString[i] === (":")) {
 
           firstDigit = numString.substring(0, i);
           secondDigit = numString.substring(i + 1, numString.length);
@@ -232,26 +232,26 @@ function regexBuilder() {
         }
       }
 
-      if (i == numString.length) { // An explicit digit was found
+      if (i === numString.length) { // An explicit digit was found
         var firstDigit = numString;
       }
 
       /* Explicit amount */
 
-      if (secondDigit == "undefined") {
+      if (secondDigit === "undefined") {
         regexExpression += "{" + firstDigit + "}";
       }
 
 
       /* Between */
 
-      if (numString.indexOf(':') != -1) {
+      if (numString.indexOf(':') !== -1) {
         regexExpression += "{" + firstDigit + "," + secondDigit + "}";
       }
 
       /* Or more */
 
-      if (numString.indexOf('+') != -1) {
+      if (numString.indexOf('+') !== -1) {
         regexExpression += "{" + firstDigit + ",}";
       }
 
@@ -271,19 +271,19 @@ function regexBuilder() {
   this.endingIn = function(optionString, fieldString, numString) {
     if (optionString) {
 
-      if (optionString == "anyChar") {
+      if (optionString === "anyChar") {
         regexExpression += ".";
-      } else if (optionString == "anyLetter") {
+      } else if (optionString === "anyLetter") {
         regexExpression += "[a-zA-Z]";
-      } else if (optionString == "anyUppercaseLetter") {
+      } else if (optionString === "anyUppercaseLetter") {
         regexExpression += "[A-Z]";
-      } else if (optionString == "anyLowercaseLetter") {
+      } else if (optionString === "anyLowercaseLetter") {
         regexExpression += "[a-z]";
-      } else if (optionString == "freeText") {
+      } else if (optionString === "freeText") {
         regexExpression += fieldString;
-      } else if (optionString == "anyWhitespace") {
+      } else if (optionString === "anyWhitespace") {
         regexExpression += "\\s";
-      } else if (optionString == "anyDigit") {
+      } else if (optionString === "anyDigit") {
         regexExpression += "\\d";
       }
     }
@@ -299,7 +299,7 @@ function regexBuilder() {
 
       for (i = 0; i < numString.length; i++) {
 
-        if (numString[i] == ("+")) {
+        if (numString[i] === ("+")) {
 
           firstDigit = numString.substring(0, i);
           console.log("First digit: " + firstDigit);
@@ -307,7 +307,7 @@ function regexBuilder() {
 
         }
 
-        if (numString[i] == (":")) {
+        if (numString[i] === (":")) {
 
           firstDigit = numString.substring(0, i);
           secondDigit = numString.substring(i + 1, numString.length);
@@ -318,26 +318,26 @@ function regexBuilder() {
         }
       }
 
-      if (i == numString.length) { // An explicit digit was found
+      if (i === numString.length) { // An explicit digit was found
         var firstDigit = numString;
       }
 
       /* Explicit amount */
 
-      if (secondDigit == "undefined") {
+      if (secondDigit === "undefined") {
         regexExpression += "{" + firstDigit + "}";
       }
 
 
       /* Between */
 
-      if (numString.indexOf(':') != -1) {
+      if (numString.indexOf(':') !== -1) {
         regexExpression += "{" + firstDigit + "," + secondDigit + "}";
       }
 
       /* Or more */
 
-      if (numString.indexOf('+') != -1) {
+      if (numString.indexOf('+') !== -1) {
         regexExpression += "{" + firstDigit + ",}";
       }
 
