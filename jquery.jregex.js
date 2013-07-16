@@ -99,19 +99,254 @@ function regexBuilder() {
 
   };
 
-  this.thatStartsWith = function(optionString, fieldString, numString){
+  this.startingWith = function(optionString, fieldString, numString) {
+
+    // Set up base regex
+
+    regexExpression = "^";
+
+    if (optionString) {
+
+      if (optionString == "anyChar") {
+        regexExpression += ".";
+      } else if (optionString == "anyLetter") {
+        regexExpression += "[a-zA-Z]";
+      } else if (optionString == "anyUppercaseLetter") {
+        regexExpression += "[A-Z]";
+      } else if (optionString == "anyLowercaseLetter") {
+        regexExpression += "[a-z]";
+      } else if (optionString == "freeText") {
+        regexExpression += fieldString;
+      } else if (optionString == "anyWhitespace") {
+        regexExpression += "\\s";
+      } else if (optionString == "anyDigit") {
+        regexExpression += "\\d";
+      }
+    }
+
+    if (numString) {
+
+      var firstDigit;
+      var secondDigit;
+
+      /* Extracting digits */
+
+      var i;
+
+      for (i = 0; i < numString.length; i++) {
+
+        if (numString[i] == ("+")) {
+
+          firstDigit = numString.substring(0, i);
+          console.log("First digit: " + firstDigit);
+          break;
+
+        }
+
+        if (numString[i] == (":")) {
+
+          firstDigit = numString.substring(0, i);
+          secondDigit = numString.substring(i + 1, numString.length);
+          console.log("First digit: " + firstDigit);
+          console.log("Second digit: " + secondDigit);
+          break;
+
+        }
+      }
+
+      if (i == numString.length) { // An explicit digit was found
+        var firstDigit = numString;
+      }
+
+      /* Explicit amount */
+
+      if (secondDigit == "undefined") {
+        regexExpression += "{" + firstDigit + "}";
+      }
+
+
+      /* Between */
+
+      if (numString.indexOf(':') != -1) {
+        regexExpression += "{" + firstDigit + "," + secondDigit + "}";
+      }
+
+      /* Or more */
+
+      if (numString.indexOf('+') != -1) {
+        regexExpression += "{" + firstDigit + ",}";
+      }
+
+    }
+
     return this;
   };
 
-  this.followedBy = function(optionString, fieldString, numString){
+  this.followedBy = function(optionString, fieldString, numString) {
+    if (optionString) {
+
+      if (optionString == "anyChar") {
+        regexExpression += ".";
+      } else if (optionString == "anyLetter") {
+        regexExpression += "[a-zA-Z]";
+      } else if (optionString == "anyUppercaseLetter") {
+        regexExpression += "[A-Z]";
+      } else if (optionString == "anyLowercaseLetter") {
+        regexExpression += "[a-z]";
+      } else if (optionString == "freeText") {
+        regexExpression += fieldString;
+      } else if (optionString == "anyWhitespace") {
+        regexExpression += "\\s";
+      } else if (optionString == "anyDigit") {
+        regexExpression += "\\d";
+      }
+    }
+
+    if (numString) {
+
+      var firstDigit;
+      var secondDigit;
+
+      /* Extracting digits */
+
+      var i;
+
+      for (i = 0; i < numString.length; i++) {
+
+        if (numString[i] == ("+")) {
+
+          firstDigit = numString.substring(0, i);
+          console.log("First digit: " + firstDigit);
+          break;
+
+        }
+
+        if (numString[i] == (":")) {
+
+          firstDigit = numString.substring(0, i);
+          secondDigit = numString.substring(i + 1, numString.length);
+          console.log("First digit: " + firstDigit);
+          console.log("Second digit: " + secondDigit);
+          break;
+
+        }
+      }
+
+      if (i == numString.length) { // An explicit digit was found
+        var firstDigit = numString;
+      }
+
+      /* Explicit amount */
+
+      if (secondDigit == "undefined") {
+        regexExpression += "{" + firstDigit + "}";
+      }
+
+
+      /* Between */
+
+      if (numString.indexOf(':') != -1) {
+        regexExpression += "{" + firstDigit + "," + secondDigit + "}";
+      }
+
+      /* Or more */
+
+      if (numString.indexOf('+') != -1) {
+        regexExpression += "{" + firstDigit + ",}";
+      }
+
+    }
+
     return this;
   };
 
-  this.onlyIfFollowedBy = function(optionString, fieldString, numString){
+  this.onlyIfFollowedBy = function(optionString, fieldString, numString) {
     return this;
   };
 
-  this.onlyIfNotFollowedBy = function(optionString, fieldString, numString){
+  this.onlyIfNotFollowedBy = function(optionString, fieldString, numString) {
+    return this;
+  };
+
+  this.endingIn = function(optionString, fieldString, numString) {
+    if (optionString) {
+
+      if (optionString == "anyChar") {
+        regexExpression += ".";
+      } else if (optionString == "anyLetter") {
+        regexExpression += "[a-zA-Z]";
+      } else if (optionString == "anyUppercaseLetter") {
+        regexExpression += "[A-Z]";
+      } else if (optionString == "anyLowercaseLetter") {
+        regexExpression += "[a-z]";
+      } else if (optionString == "freeText") {
+        regexExpression += fieldString;
+      } else if (optionString == "anyWhitespace") {
+        regexExpression += "\\s";
+      } else if (optionString == "anyDigit") {
+        regexExpression += "\\d";
+      }
+    }
+
+    if (numString) {
+
+      var firstDigit;
+      var secondDigit;
+
+      /* Extracting digits */
+
+      var i;
+
+      for (i = 0; i < numString.length; i++) {
+
+        if (numString[i] == ("+")) {
+
+          firstDigit = numString.substring(0, i);
+          console.log("First digit: " + firstDigit);
+          break;
+
+        }
+
+        if (numString[i] == (":")) {
+
+          firstDigit = numString.substring(0, i);
+          secondDigit = numString.substring(i + 1, numString.length);
+          console.log("First digit: " + firstDigit);
+          console.log("Second digit: " + secondDigit);
+          break;
+
+        }
+      }
+
+      if (i == numString.length) { // An explicit digit was found
+        var firstDigit = numString;
+      }
+
+      /* Explicit amount */
+
+      if (secondDigit == "undefined") {
+        regexExpression += "{" + firstDigit + "}";
+      }
+
+
+      /* Between */
+
+      if (numString.indexOf(':') != -1) {
+        regexExpression += "{" + firstDigit + "," + secondDigit + "}";
+      }
+
+      /* Or more */
+
+      if (numString.indexOf('+') != -1) {
+        regexExpression += "{" + firstDigit + ",}";
+      }
+
+    }
+
+    // Add last token
+
+    regexExpression += "$";
+
     return this;
   };
 

@@ -16,10 +16,12 @@
 
 <script>
 
-var gre = $.regex().whichContains("freeText","abcdefg","1+").getRegex();
+var gre = $.regex().startingWith("freeText","narc","1").followedBy("anyChar","","2:5").followedBy("anyWhitespace","","2+").getRegex();
 alert(gre);
-console.log(gre);
+console.log("Here is generated: " + gre);
 
+var narc = /^narc.{2,5}\s{2,}/;
+console.log(narc.toString());
 </script>
 
 </html>
