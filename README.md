@@ -2,7 +2,6 @@ jRegex
 ======
 
 jRegex is a jQuery plugin which helps you build regular expressions with ease.
-<iframe width="100%" height="300" src="http://jsfiddle.net/shrimpboyho/8ChjR/embedded/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 
 ###How To Use
 
