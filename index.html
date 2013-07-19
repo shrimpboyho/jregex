@@ -1,27 +1,47 @@
 <html>
 
 <head>
-	<title> Testing jRegex </title>
+	<title> jRegex </title>
+	<link href= "qunit.css"></link>
 </head>
 
 <body>
-	<h1 style = "color:#ffff00;" id= "titleBanner"> Pretty Colors </h1>
-	<div id = "musicDiv"> </div>
-	<div id = "videoDiv"> </div>
+	<h1 id="qunit-header">jRegex Unit Tests</h1>
+	<h2 id="qunit-banner"></h2>
+	<div id="qunit-testrunner-toolbar"></div>
+	<ol id="qunit-tests"></ol>
+	<div id="qunit-fixture"></div>
 </body>
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 
 <script src="jquery.jregex.js"></script>
+<script src="qunit.js"></script>
 
 <script>
 
 var gre = $.regex().whichContains("anyChar","","4:9").endingIn("freeText","narc","2").getRegex();
-alert(gre);
 console.log("Here is generated: " + gre);
 
 var narc = /.{4,9}(?:narc){2}$/;
 console.log("Correct Regex: " + narc.toString());
+
+/* Unit tests */
+
+// Stability test
+test("System Stabiliy", function() {
+  var value = $.regex().whichContains("anyChar","","4:9").endingIn("freeText","narc","2").getRegex();
+    var narc = /.{4,9}(?:narc){2}$/;
+  equal( value, narc.toString(), "The system is useable and doesn't crash." );
+}); 
+
+// System accuracy
+test("System Error Checking", function() {
+  var value = $.regex().whichContains("anyChar","4:9").endingIn("freeText","narc","2").getRegex();
+    var narc = /.{4,9}(?:narc){2}$/;
+  notEqual( value, narc.toString(), "The system is breaks down when less than 3 parameters are passed" );
+}); 
+
 </script>
 
 </html>
