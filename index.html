@@ -1,48 +1,145 @@
-<html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<title>jRegex</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="">
 
-<head>
-	<title>jRegex</title>
-</head>
+<!-- Le styles -->
+<link href="assets/css/bootstrap.css" rel="stylesheet">
+<style type="text/css">
+.hero-unit {
+	margin-top: 75px;
+}
+</style>
+<link href="http://bootswatch.com/cyborg/bootstrap.min.css" rel="stylesheet">
 
-<body>
-	<h1 id="qunit-header">jRegex Unit Tests</h1>
-	<h2 id="qunit-banner"></h2>
-	<div id="qunit-testrunner-toolbar"></div>
-	<ol id="qunit-tests"></ol>
-	<div id="qunit-fixture"></div>
+<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="../assets/js/html5shiv.js"></script>
+      <![endif]-->
+
+  </head>
+
+  <body>
+  	
+
+  	<div class="navbar navbar-inverse navbar-fixed-top">
+  		<div class="navbar-inner">
+  			<div class="container">
+  				<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+  					<span class="icon-bar"></span>
+  					<span class="icon-bar"></span>
+  					<span class="icon-bar"></span>
+  				</button>
+  				<a class="brand" href="#">jRegex</a>
+  				<div class="nav-collapse collapse">
+  					<ul class="nav">
+  						<li class="active"><a href="#" id= "homeButton">Home</a></li>
+  						<li><a href="http://github.com/shrimpboyho/jregex">Source</a></li>
+  						<li><a href="#tests" id="testButton">Tests</a></li>
+  						
+  					</ul>
+  					
+  				</div><!--/.nav-collapse -->
+  			</div>
+  		</div>
+  	</div>
+
+  	<div class="container">
+
+  		<!-- Main hero unit for a primary marketing message or call to action -->
+  		<div class="hero-unit" id= "titleSlide">
+  			<h1>jRegex</h1>
+  			<p>The Simple Way To Build Regular Expressions</p>
+  			<p><a href="https://github.com/shrimpboyho/jregex/archive/master.zip" class="btn btn-primary btn-large">Download »</a></p>
+  		</div>
+
+      <div class="hero-unit" id= "unitTests">
+
+        <h1 id="qunit-header">jRegex Unit Tests</h1>
+        <h2 id="qunit-banner"></h2>
+        <div id="qunit-testrunner-toolbar"></div>
+        <ol id="qunit-tests"></ol>
+        <div id="qunit-fixture"></div>
+
+      </div>
+
+  		<!-- Example row of columns -->
+  		<div class="row">
+  			<div class="span4">
+  				<h2>An Extension of jQuery</h2>
+  				<p>jRegex is a plugin for jQuery and extends jQuery's functionality</p>
+  				<p><a class="btn" href="#">View details »</a></p>
+  			</div>
+  			<div class="span4">
+  				<h2>Easy To Use</h2>
+  				<p>The function chaining jRegex utilizes enhances the readability of your code and provides readable enhancement and ease for regular expressions. </p>
+  				<p><a class="btn" href="#">View details »</a></p>
+  			</div>
+  			<div class="span4">
+  				<h2>It's Open Source</h2>
+  				<p>That's right. All the code is hosted right here on Github under the GPL licence!</p>
+  				<p><a class="btn" href="#">View details »</a></p>
+  			</div>
+  		</div>
+
+  		<hr>
+
+  		<footer>
+  			<p>© shrimpboyho 2013</p>
+  		</footer>
+
+  	</div> <!-- /container -->
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+
+    <script src="jquery.jregex.js"></script>
+    <script src="qunit.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+      
+      $('#unitTests').hide();
+
+      $('#testButton').click(function(){
+        $('#unitTests').show('slow');
+        $('#titleSlide').hide('slow');
+      });
+
+      $('#homeButton').click(function(){
+        $('#unitTests').hide('slow');
+        $('#titleSlide').show('slow');
+      });
+
+      var gre = $.regex().whichContains("anyChar", "", "4:9").endingIn("freeText", "narc", "2").getRegex();
+      console.log("Here is generated: " + gre);
+
+      var narc = /.{4,9}(?:narc){2}$/;
+      console.log("Correct Regex: " + narc.toString());
+
+      /* Unit tests */
+
+       // Stability test
+      test("System Stabiliy", function() {
+        var value = $.regex().whichContains("anyChar", "", "4:9").endingIn("freeText", "narc", "2").getRegex();
+        var narc = /.{4,9}(?:narc){2}$/;
+        equal(value, narc.toString(), "The system is useable and doesn't crash.");
+      });
+
+       // System accuracy
+      test("System Error Checking", function() {
+        var value = $.regex().whichContains("anyChar", "4:9").endingIn("freeText", "narc", "2").getRegex();
+        var narc = /.{4,9}(?:narc){2}$/;
+        notEqual(value, narc.toString(), "The system is breaks down when less than 3 parameters are passed");
+      });
+
+    </script>
+
+    <link rel="stylesheet" type="text/css" href="http://code.jquery.com/qunit/git/qunit.css" />
+
 </body>
-
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-
-<script src="jquery.jregex.js"></script>
-<script src="qunit.js"></script>
-
-<script>
-
-var gre = $.regex().whichContains("anyChar","","4:9").endingIn("freeText","narc","2").getRegex();
-console.log("Here is generated: " + gre);
-
-var narc = /.{4,9}(?:narc){2}$/;
-console.log("Correct Regex: " + narc.toString());
-
-/* Unit tests */
-
-// Stability test
-test("System Stabiliy", function() {
-  var value = $.regex().whichContains("anyChar","","4:9").endingIn("freeText","narc","2").getRegex();
-    var narc = /.{4,9}(?:narc){2}$/;
-  equal( value, narc.toString(), "The system is useable and doesn't crash." );
-}); 
-
-// System accuracy
-test("System Error Checking", function() {
-  var value = $.regex().whichContains("anyChar","4:9").endingIn("freeText","narc","2").getRegex();
-    var narc = /.{4,9}(?:narc){2}$/;
-  notEqual( value, narc.toString(), "The system is breaks down when less than 3 parameters are passed" );
-}); 
-
-</script>
-
-<link rel="stylesheet" type="text/css" href="http://code.jquery.com/qunit/git/qunit.css" />
-
 </html>
