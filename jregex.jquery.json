@@ -5,9 +5,10 @@
     "keywords": [
         "regular",
         "expressions",
-        "easy"
+        "easy",
+        "form"
     ],
-    "version": "1.0.1",
+    "version": "1.0.2",
     "author": {
         "name": "shrimpboyho",
         "url": "https://github.com/shrimpboyho"
