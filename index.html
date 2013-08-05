@@ -12,7 +12,7 @@
 	margin-top: 75px;
 }
 </style>
-<link href="http://bootswatch.com/cyborg/bootstrap.min.css" rel="stylesheet">
+<link href="assets/css/bootstrap.min.css" rel="stylesheet">
 
 <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -99,33 +99,13 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 
     <script src="jquery.jregex.js"></script>
-    <script src="qunit.js"></script>
+    <script src="qunit/qunit.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
-    <script type="text/javascript">
-      
-      $('#unitTests').hide();
+    <script src="scripts/app.js"></script>
 
-      $('#testButton').click(function(){
-        $('#unitTests').show('slow');
-        $('#titleSlide').hide('slow');
-      });
+    <script src="scripts/unittests.js"></script>
 
-      $('#homeButton').click(function(){
-        $('#unitTests').hide('slow');
-        $('#titleSlide').show('slow');
-      });
-
-      var gre = $.regex().whichContains("anyChar", "", "4:9").endingIn("freeText", "narc", "2").getRegex();
-      console.log("Here is generated: " + gre);
-
-      var narc = /.{4,9}(?:narc){2}$/;
-      console.log("Correct Regex: " + narc.toString());
-
-    </script>
-
-    <script src="unittests.js"></script>
-
-    <link rel="stylesheet" type="text/css" href="qunit.css" />
+    <link rel="stylesheet" type="text/css" href="qunit/qunit.css" />
 
 </body>
 </html>
