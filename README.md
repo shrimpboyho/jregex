@@ -7,7 +7,7 @@ jRegex is a jQuery plugin which helps you build regular expressions with ease.
 
 Including jRegex is very simple.
 
-```
+```html
 <script src="jquery.min.js"></script>
 <script src="jquery.jregex.js"></script>
 <script src="yourjavascript.js"></script>
@@ -17,7 +17,7 @@ Including jRegex is very simple.
 
 Build a regular expression
 
-```
+```js
 // Create a regular expression
 
 var exp = $.regex().whichContains("freeText","abcdefg","1+").getRegex();
@@ -36,13 +36,13 @@ Output:
 ###The Basics
 To use jRegex create a jRegex object which can be done easily by invoking:
 
-```
+```js
 $.regex()
 ```
 
 Now in order to create an actual regular expression begin the process of chaining methods. The regex creation methods that can be chained are:
 
-```
+```js
 .startingWith()
 .whichContains()
 .or()
@@ -54,21 +54,25 @@ Now in order to create an actual regular expression begin the process of chainin
 
 Finally, once all the chaining is done, you'd probably want to get the RegExp object, and this can be done by tacking one last method at the end:
 
-```
+```js
 .getRegex()  // No arguments nessecary
 ```
 
 A full example is below:
 
-```
-var gre = $.regex().startingWith("freeText","narc","1").followedBy("anyChar","","2:5").followedBy("anyWhitespace","","2+").getRegex()
+```js
+var gre = $.regex()
+           .startingWith("freeText","narc","1")
+           .followedBy("anyChar","","2:5")
+           .followedBy("anyWhitespace","","2+")
+           .getRegex()
 ```
 
 ###The Golden Rule
 
 Each of these methods:
 
-```
+```js
 .startingWith()
 .whichContains()
 .or()
@@ -82,7 +86,7 @@ Requires 3 string variables as arguments. Nothing more, nothing less.
 
 Thus, this is acceptable:
 
-```
+```js
 .startingWith("","","")
 ```
 
@@ -98,7 +102,7 @@ These are the three string arguments that are passed into the string creation me
 
 They are passed in as followed:
 
-```
+```js
 .startingWith(specifier,fieldText,quantifier)
 ```
 
@@ -106,7 +110,7 @@ They are passed in as followed:
 
 These are the valid strings you can set as your specifier
 
-```
+```js
 "anyChar"
 "anyLetter"
 "anyUppercaseLetter"
@@ -120,7 +124,7 @@ These are the valid strings you can set as your specifier
 
 When using the ```freeText``` method, you can set the fieldText string as whatever you want to match:
 
-```
+```js
 .startingWith("freeText","YOU TEXT HERE","")
 ```
 
@@ -134,7 +138,7 @@ You quanitifer strings can be one of three kinds:
 
 This example demonstrates:
 
-```
+```js
 .startingWith("anyChar","","6")       // Any character exactly 6 times
 .startingWith("anyChar","","6+")      // Any character 6 or more times
 .startingWith("anyChar","","6:20")    // Any character between 6 thru 20 times
